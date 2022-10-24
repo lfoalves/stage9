@@ -1,4 +1,4 @@
-import { Container, Form } from "./styles";
+import { Container, Content, Form } from "./styles";
 
 import { Header } from '../../components/Header'
 import { Section } from '../../components/Section'
@@ -6,6 +6,7 @@ import { GoBack } from '../../components/GoBack'
 import { Input } from "../../components/Input";
 import { Textarea } from '../../components/Textarea'
 import { NoteItem } from "../../components/NoteItem";
+import { Button } from '../../components/Button'
 
 export function New() {
   return(
@@ -14,42 +15,49 @@ export function New() {
       <Header />
       
       <main>
-        <Section title={'Novo Filme'}>
-          <div>
-          <GoBack />
+        <Content>
+          <Section title={'Novo Filme'}>
+              <GoBack />
+              <Form>
+                <div className="flex">
+                  <Input
+                    placeholder={'Título'}
+                    required
+                  />
 
-          <Form>
-            <div className="flex">
-              <Input
-                placeholder={'Título'}
-                required
-              />
+                  <Input
+                    placeholder={'Sua nota de (0 a 5)'}
+                    type={'number'}
+                    min={'0'}
+                    max={'5'}
+                    required
+                  />
+                </div>
 
-              <Input
-                placeholder={'Sua nota de (0 a 5)'}
-                type={'number'}
-                min={'0'}
-                max={'5'}
-                required
-              />
+                <Textarea
+                  placeholder={'Observações'}
+                  required
+                />
+              </Form>
+          </Section>
+
+          <Section title={'Marcadores'}>
+            <div className="tags">
+              <NoteItem value={'Animação'} />
+              <NoteItem value={'Aventura'} />
+              <NoteItem value={'Suspense'} isNew/>
+              <NoteItem value={'Terror'} isNew/>
+              <NoteItem value={'Comédia'} isNew/>
+              <NoteItem value={'Guerra'} isNew/>
             </div>
+          </Section>
 
-            <Textarea
-              placeholder={'Observações'}
-              required
-            />
-
-          </Form>
+          <div className="buttons">
+            <Button  title={'Excluir filme'} />
+            <Button  title={'Salvar alterações'} />
           </div>
-        </Section>
-
-        <Section title={'Marcadores'}>
-          <div className="tags">
-            <NoteItem value={'Animação'} />
-            <NoteItem value={'Aventura'} />
-            <NoteItem value={'Aventura'} isNew/>
-          </div>
-        </Section>
+      
+        </Content>
       </main>
       
     </Container>

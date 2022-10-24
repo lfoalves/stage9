@@ -7,6 +7,18 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  &::-webkit-scrollbar {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb{
+    border: 5px solid transparent;
+    
+    background-clip: padding-box;
+    border-radius: 10px;
+    background-color: ${({theme}) => theme.COLORS.PINK_100};
+  }
+
   html {
     font-size: 62.5%;
   }
@@ -24,7 +36,7 @@ export default createGlobalStyle`
     background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
     color: ${({theme}) => theme.COLORS.WHITE};
   }
-
+  
   body, input, button, textarea {
     font-family: 'Roboto Slab', serif;
     font-size: 1.6rem;

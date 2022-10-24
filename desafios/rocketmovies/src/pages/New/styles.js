@@ -9,44 +9,76 @@ export const Container = styled.div`
   grid-template-areas: 
     'header'
     'content';
-  
+
+  margin-bottom: 9.3rem;
+
   > main {
     grid-area: content;
+  } 
+`;
 
-    padding: 5rem;
+export const Content = styled.div `
 
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+  overflow-y: scroll;
+  max-width: 113.3rem;
+  margin: 0 auto;
+  padding-top: 4rem;
+  padding-inline: 0.5rem;
 
-    width: 100%;
-    max-width: 113.3rem;
-    margin: 0 auto;
+  
+  width: 100%;
+  
+  > section {
+    padding-top: 3rem;
+  }
 
+  > section:nth-child(1) {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    a {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  > section:nth-child(2) {
     .tags {
       display: flex;
       align-items: center;
-      gap: 2.4rem;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      column-gap: 2.4rem;
+      row-gap: 1.6rem;
 
       margin-top: 2.4rem;
-
+      
       padding: 1.6rem;
-
+      
       background-color: ${({ theme }) => theme.COLORS.BLACK};
       border-radius: 0.8rem;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    gap: 4rem;
+
+    margin-top: 4rem;
+
+    > button:nth-child(1) {
+      background-color: ${({ theme }) => theme.COLORS.BLACK};
+      color: ${({ theme }) => theme.COLORS.PINK_100};
     }
   }
 `;
 
 export const Form = styled.form `
   width: 100%;
-  height: 27.5rem;
 
   margin-top: 4rem;
-
-  > a {
-    margin-bottom: 2.4rem;
-  }
 
   .flex {
     display: flex;
@@ -54,5 +86,4 @@ export const Form = styled.form `
 
     margin-bottom: 3.2rem;
   }
-
 `;

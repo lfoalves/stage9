@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { Link } from 'react-router-dom'
 
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 
 import { Header } from "../../components/Header";
 import { Section } from "../../components/Section";
@@ -89,9 +89,9 @@ export function Home() {
   const [movies, setMovies] = useState([])
 
   useEffect(() => {
-    // let URL = 'http://localhost:9999/movies/b9a55585-5ec8-4faf-9d25-924e1cb3f8a3';
+    let URL = 'http://localhost:9999/movies/b9a55585-5ec8-4faf-9d25-924e1cb3f8a3';
     // URL = 'http://localhost:9999/movies?user_id=a1d1f5e0-c0d3-4c5e-be47-0ee9d577b106&title=a&tags=anima%C3%A7%C3%A3o'
-    URL = 'http://localhost:9999/movies?user_id=b9a55585-5ec8-4faf-9d25-924e1cb3f8a3&title=a'
+    // URL = 'http://localhost:9999/movies?user_id=b9a55585-5ec8-4faf-9d25-924e1cb3f8a3&title=a'
 
     fetch(URL)
     .then(resolve => resolve.json())
@@ -106,24 +106,25 @@ export function Home() {
 
       <Header />
 
-      <Section title={'Meus filmes'}>
-
-          <Link to={'/new'}>
+      <Content>
+        <Section title={'Meus filmes'}>
+          <Link to={'/new'} title={'Adiconar nova nota'}>
             <FiPlus />
-            Adicionar filme
+              Adicionar filme
           </Link>
 
           <main>
             {
               movies && movies.map(movie => {
                 return(
-                  <MovieNote data={movie} />
+                  <MovieNote data={movie} key={movie.id} />
                 )
               })
             }
           </main>
-          
-      </Section>
+            
+        </Section>
+      </Content>
     </Container>
   );
 }
