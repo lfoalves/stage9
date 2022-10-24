@@ -24,7 +24,8 @@ export default createGlobalStyle`
   }
 
   .container {
-    max-width: 112rem;
+    max-width: 113rem;
+    margin: 0 auto;
   }
 
   body {
@@ -34,6 +35,7 @@ export default createGlobalStyle`
     scroll-behavior: smooth;
 
     background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
+    /* background-color: rgba(200,200,200); */
     color: ${({theme}) => theme.COLORS.WHITE};
   }
   

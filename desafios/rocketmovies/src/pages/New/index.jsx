@@ -1,4 +1,4 @@
-import { Container, Content, Form } from "./styles";
+import { Container, Form } from "./styles";
 
 import { Header } from '../../components/Header'
 import { Section } from '../../components/Section'
@@ -15,10 +15,10 @@ export function New() {
       <Header />
       
       <main>
-        <Content>
+        
+        <Form>
           <Section title={'Novo Filme'}>
               <GoBack />
-              <Form>
                 <div className="flex">
                   <Input
                     placeholder={'Título'}
@@ -38,7 +38,6 @@ export function New() {
                   placeholder={'Observações'}
                   required
                 />
-              </Form>
           </Section>
 
           <Section title={'Marcadores'}>
@@ -56,8 +55,8 @@ export function New() {
             <Button  title={'Excluir filme'} />
             <Button  title={'Salvar alterações'} />
           </div>
+        </Form>
       
-        </Content>
       </main>
       
     </Container>

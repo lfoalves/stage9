@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 
 import { Link } from 'react-router-dom'
 
-import { Container, Content } from "./styles";
+import { Container, Content, MoviesNotes } from "./styles";
 
 import { Header } from "../../components/Header";
 import { Section } from "../../components/Section";
 import { MovieNote } from "../../components/MovieNote";
-import { Button } from '../../components/Button'
 
 import { FiPlus } from 'react-icons/fi'
 
@@ -106,25 +105,28 @@ export function Home() {
 
       <Header />
 
-      <Content>
-        <Section title={'Meus filmes'}>
-          <Link to={'/new'} title={'Adiconar nova nota'}>
-            <FiPlus />
-              Adicionar filme
-          </Link>
+      <main>
+        <Content>
+          <div className="container">
+            <Link to={'/new'} title={'Adiconar nova nota'}>
+              <FiPlus />
+                Adicionar filme
+            </Link>
+            <Section title={'Meus filmes'}>
 
-          <main>
-            {
-              movies && movies.map(movie => {
-                return(
-                  <MovieNote data={movie} key={movie.id} />
-                )
-              })
-            }
-          </main>
-            
-        </Section>
-      </Content>
+              <MoviesNotes>
+                {
+                  movies && movies.map(movie => {
+                    return(
+                      <MovieNote data={movie} key={movie.id} />
+                    )
+                  })
+                }
+              </MoviesNotes>
+            </Section>
+          </div>
+        </Content>
+      </main>
     </Container>
   );
 }
