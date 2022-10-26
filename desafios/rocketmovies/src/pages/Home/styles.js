@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { devices } from '../../styles/devices'
+
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -14,6 +16,16 @@ export const Container = styled.div`
     grid-area: content;
     overflow-y: scroll;
   }
+
+  /* @media ${devices.mobileL} {
+    background: red;
+  }
+  @media ${devices.tablet} {
+    background: green;
+  }
+  @media ${devices.laptop} {
+    background: blue;
+  } */
 `;
 
 export const Content = styled.div `

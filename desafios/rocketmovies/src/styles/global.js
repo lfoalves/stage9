@@ -21,6 +21,11 @@ export default createGlobalStyle`
 
   html {
     font-size: 62.5%;
+
+    display: grid;
+
+    width: 100%;
+    height: 100%;
   }
 
   .container {
@@ -30,12 +35,13 @@ export default createGlobalStyle`
 
   body {
     font-size: 1.6rem;
+
+    display: grid;
     
     -webkit-font-smoothing: antialized;
     scroll-behavior: smooth;
 
     background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
-    /* background-color: rgba(200,200,200); */
     color: ${({theme}) => theme.COLORS.WHITE};
   }
   
